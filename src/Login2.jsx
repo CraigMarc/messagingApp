@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react'
 
 
 const Login = (props) => {
+
+    const navigate = useNavigate();
 
   const {
 
@@ -47,6 +49,7 @@ const Login = (props) => {
     });
     let errMessage = token.message
     setToken(token);
+    navigate('/')
     if (token.message = "wrong username or password" ){
       setError(errMessage)
       }

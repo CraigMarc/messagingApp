@@ -2,19 +2,22 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home"
 import ErrorPage from "./ErrorPage";
 import Login from "./Login"
+import Login2 from "./Login2"
 import Register from "./Register"
 
 const Router = (props) => {
 
   const {
-
+    render,
+    setRerender,
+    handleLogout,
     messages,
     setMessages,
     comments,
     setComments,
     token,
     setToken,
-    
+
 
   } = props;
 
@@ -24,10 +27,10 @@ const Router = (props) => {
       path: "/",
       element:
         <Home
-          messages={messages}
-          setMessages={setMessages}
-          comments={comments}
-          setComments={setComments}
+          render={render}
+          setRerender={setRerender}
+          handleLogout={handleLogout}
+          setToken={setToken}
 
         />,
 
@@ -36,11 +39,12 @@ const Router = (props) => {
 
     {
       path: "/login",
-      element: <Login
-        
-        setToken={setToken}
-        
-      />,
+      element:
+        <Login2
+
+          setToken={setToken}
+
+        />,
       errorElement: <ErrorPage />,
     },
 
@@ -48,26 +52,26 @@ const Router = (props) => {
       path: "/register",
       element:
         <Register
-         
+
 
         />,
 
       errorElement: <ErrorPage />,
     },
-/*
-    {
-      path: "/newpost",
-      element:
-        <NewPost
-          messages={messages}
-          comments={comments}
-          setComments={setComments}
-
-        />,
-
-      errorElement: <ErrorPage />,
-    },
-*/
+    /*
+        {
+          path: "/newpost",
+          element:
+            <NewPost
+              messages={messages}
+              comments={comments}
+              setComments={setComments}
+    
+            />,
+    
+          errorElement: <ErrorPage />,
+        },
+    */
 
   ]);
 
