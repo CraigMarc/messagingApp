@@ -59,12 +59,22 @@ const Register = (props) => {
    
   }
 
- 
+  // return to log in
+
+  
+
+  function login () {
+
+    setShowForm(false);
+
+  }
 
 
+/// render sign up
   return(
     <div className="login-wrapper">
       <h1>Sign Up</h1>
+      <button className="returnLogin" onClick={login} >Return to Login</button>
       <form onSubmit={handleSubmit}>
         <label>
           <p>First Name</p>
