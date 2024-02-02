@@ -1,14 +1,7 @@
-import { Link, useParams } from "react-router-dom";
-import Login from './Login';
+import { Link } from "react-router-dom";
 
-function Header(props) {
 
-  const {
-
-    setRerender,
-    setToken
-
-  } = props;
+function Header() {
 
 
   const handleLogout = (event) => {

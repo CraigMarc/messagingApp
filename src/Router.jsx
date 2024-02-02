@@ -8,8 +8,7 @@ import Register from "./Register"
 const Router = (props) => {
 
   const {
-    render,
-    setRerender,
+   
     handleLogout,
     messages,
     setMessages,
@@ -27,8 +26,7 @@ const Router = (props) => {
       path: "/",
       element:
         <Home
-          render={render}
-          setRerender={setRerender}
+          
           handleLogout={handleLogout}
           setToken={setToken}
 

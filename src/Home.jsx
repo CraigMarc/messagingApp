@@ -5,16 +5,15 @@ const Home = (props) => {
 
   const {
 
-    setRerender,
-    setToken
+   
+   setToken
 
   } = props;
 
   return (
     <div>
       <Header
-        setRerender={setRerender}
-        setToken={setToken}
+      
       />
       <h1>Home</h1>
 

@@ -32,7 +32,7 @@ function App() {
 
   const [messages, setMessages] = useState([])
   const [comments, setComments] = useState()
-  const [rerender, setRerender] = useState()
+ 
  
 
   const { token, setToken } = useToken();
@@ -47,8 +47,7 @@ function App() {
     <div>
 
       <Router
-        rerender={rerender}
-        setRerender={setRerender}
+        
         setToken={setToken}
 
       />
