@@ -1,9 +1,65 @@
+/*
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import './App.css'*/
+
+import { useState, useEffect } from 'react'
 import './App.css'
+import Router from './Router'
+//import Login from './Login';
 
 function App() {
+/*
+  function useToken() {
+
+    const getToken = () => {
+        const tokenString = sessionStorage.getItem('token');
+        const userToken = JSON.parse(tokenString);
+        return userToken?.token
+      };
+
+  const [token, setToken] = useState(getToken());
+
+  const saveToken = userToken => {
+    sessionStorage.setItem('token', JSON.stringify(userToken));
+    setToken(userToken.token);
+  };
+
+  return {
+    setToken: saveToken,
+    token
+  }
+
+}
+
+  const [messages, setMessages] = useState([])
+  const [comments, setComments] = useState()
+  
+  
+
+const { token, setToken } = useToken();
+
+
+  if (!token) {
+
+    return <Login setToken={setToken} />
+  }
+*/
+
+  return (
+    <div>
+
+      <Router
+       
+        
+        
+      />
+    </div>
+  )
+
+  /*
   const [count, setCount] = useState(0)
 
   return (
@@ -30,6 +86,7 @@ function App() {
       </p>
     </>
   )
+  */
 }
 
 export default App
