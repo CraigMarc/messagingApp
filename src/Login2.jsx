@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
-
+import Register from "./Register"
 
 const Login = (props) => {
 
@@ -57,6 +57,24 @@ const Login = (props) => {
     
   }
 
+  const [showForm, setShowForm] = useState(false);
+
+  function signUp () {
+
+    setShowForm(true);
+
+  }
+
+  if (showForm == true)
+    return (
+      <div>
+        <Register
+        setShowForm={setShowForm}
+        />
+      </div>
+    )
+
+
   
 
 
@@ -77,6 +95,7 @@ const Login = (props) => {
         </div>
       </form>
       <p>{error}</p>
+      <button className="signUp" onClick={signUp} >Sign Up</button>
     </div>
   )
 }

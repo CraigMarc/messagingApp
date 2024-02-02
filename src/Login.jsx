@@ -54,6 +54,8 @@ const Login = (props) => {
 
   }
 
+  // show reg form
+
   const [showForm, setShowForm] = useState(false);
 
   function signUp () {
@@ -70,6 +72,8 @@ const Login = (props) => {
         />
       </div>
     )
+
+    // render sign in
 
   return (
     <div className="login-wrapper">
@@ -88,7 +92,7 @@ const Login = (props) => {
         </div>
       </form>
       <p>{error}</p>
-      <button className="logout" onClick={signUp} >Sign Up</button>
+      <button className="signUp" onClick={signUp} >Sign Up</button>
     </div>
   )
 }
