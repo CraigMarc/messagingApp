@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home"
 import ErrorPage from "./ErrorPage";
-//import Login from "./Login"
+import Login from "./Login"
 
 
 const Router = (props) => {
@@ -33,7 +33,7 @@ const Router = (props) => {
 
       errorElement: <ErrorPage />,
     },
-/*
+
     {
       path: "/login",
       element: <Login
@@ -43,7 +43,7 @@ const Router = (props) => {
       />,
       errorElement: <ErrorPage />,
     },
-
+/*
     {
       path: "/post/:id",
       element:
