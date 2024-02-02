@@ -6,7 +6,7 @@ const Register = (props) => {
 
   const {
 
-    setToken,
+    setShowForm
    
     
   } = props;
@@ -50,6 +50,7 @@ const Register = (props) => {
    // console.log(data)
    console.log(userName)
    console.log(firstName)
+   setShowForm(false)
     /*
     const token = await loginUser({
       email,
