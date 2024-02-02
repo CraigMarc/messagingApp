@@ -11,28 +11,6 @@ const Register = (props) => {
     
   } = props;
 
-  async function loginUser(credentials) {
-
-  
-    try {
-    return fetch('https://blogapi1200.fly.dev/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      
-      body: JSON.stringify(credentials)
-    })
-      .then(data => data.json())
-    
-    }
-      catch(error)  {
-       
-        console.log(err.message);
-      
-      }
-   }
-
   
 //event listener
   const [userName, setUserName] = useState();
@@ -46,28 +24,39 @@ const Register = (props) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-   // const data = Object.fromEntries(new FormData(e.target).entries());
-   // console.log(data)
-   console.log(userName)
-   console.log(firstName)
+  
    if (password !== confirm) {
     alert("Passwords don't match");
    }
    else {
+    try {
+      return fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          userName: userName,
+          password: password,
+          confirm: confirm
+      })
+    })
+        .then(data => data.json())
+        .then(setShowForm(false))
+    }
+    catch (error) {
+
+      console.log(error.message);
+
+    }
+
+
    setShowForm(false)
    }
-    /*
-    const token = await loginUser({
-      email,
-      password
-    });
-    let errMessage = token.message
-    setToken(token);
-    if (token.message = "wrong username or password" ){
-      setError(errMessage)
-      }
-      else{setError()}
-    */
+   
   }
 
  
@@ -79,23 +68,23 @@ const Register = (props) => {
       <form onSubmit={handleSubmit}>
         <label>
           <p>First Name</p>
-          <input type="text" required name='firstName' onChange={e => setFirstName(e.target.value)} />
+          <input type="text" minLength={2} required name='firstName' onChange={e => setFirstName(e.target.value)} />
         </label>
         <label>
           <p>Last Name</p>
-          <input type="text" required name='lastName' onChange={e => setLastName(e.target.value)} />
+          <input type="text" minLength={2} required name='lastName' onChange={e => setLastName(e.target.value)} />
         </label>
         <label>
           <p>Email</p>
-          <input type="email" required name='userName' onChange={e => setUserName(e.target.value)} />
+          <input type="email" minLength={4} required name='userName' onChange={e => setUserName(e.target.value)} />
         </label>
         <label>
           <p>Password</p>
-          <input type="password" required name="password" onChange={e => setPassword(e.target.value)} />
+          <input type="password" minLength={6} required name="password" onChange={e => setPassword(e.target.value)} />
         </label>
         <label>
           <p>Retype Password</p>
-          <input type="password" required name='confirm'  onChange={e => setConfirm(e.target.value)} />
+          <input type="password" minLength={6} required name='confirm'  onChange={e => setConfirm(e.target.value)} />
         </label>
         <div className="loginSubmit">
           <button type="submit">Submit</button>
