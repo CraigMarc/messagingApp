@@ -5,10 +5,16 @@ const Home = (props) => {
 
   const {
 
-   
-   setToken
+  token
 
   } = props;
+
+  //dont need for this page but will for others *************
+/*
+  if (!token) {
+
+    return <Login setToken={setToken} />
+  }*/
 
   return (
     <div>

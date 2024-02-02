@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Home"
 import ErrorPage from "./ErrorPage";
-import Login from "./Login"
 import Login2 from "./Login2"
 import Register from "./Register"
 
@@ -28,7 +27,7 @@ const Router = (props) => {
         <Home
           
           handleLogout={handleLogout}
-          setToken={setToken}
+          token={token}
 
         />,
 

@@ -49,6 +49,7 @@ function App() {
       <Router
         
         setToken={setToken}
+        token={token}
 
       />
     </div>
