@@ -50,7 +50,12 @@ const Register = (props) => {
    // console.log(data)
    console.log(userName)
    console.log(firstName)
+   if (password !== confirm) {
+    alert("Passwords don't match");
+   }
+   else {
    setShowForm(false)
+   }
     /*
     const token = await loginUser({
       email,
@@ -65,7 +70,7 @@ const Register = (props) => {
     */
   }
 
-  
+ 
 
 
   return(
@@ -74,23 +79,23 @@ const Register = (props) => {
       <form onSubmit={handleSubmit}>
         <label>
           <p>First Name</p>
-          <input type="text" name='firstName' onChange={e => setFirstName(e.target.value)} />
+          <input type="text" required name='firstName' onChange={e => setFirstName(e.target.value)} />
         </label>
         <label>
           <p>Last Name</p>
-          <input type="text" name='lastName' onChange={e => setLastName(e.target.value)} />
+          <input type="text" required name='lastName' onChange={e => setLastName(e.target.value)} />
         </label>
         <label>
           <p>Email</p>
-          <input type="text" name='userName' onChange={e => setUserName(e.target.value)} />
+          <input type="email" required name='userName' onChange={e => setUserName(e.target.value)} />
         </label>
         <label>
           <p>Password</p>
-          <input type="text" name="password" onChange={e => setPassword(e.target.value)} />
+          <input type="password" required name="password" onChange={e => setPassword(e.target.value)} />
         </label>
         <label>
           <p>Retype Password</p>
-          <input type="password" name='confirm' onChange={e => setConfirm(e.target.value)} />
+          <input type="password" required name='confirm'  onChange={e => setConfirm(e.target.value)} />
         </label>
         <div className="loginSubmit">
           <button type="submit">Submit</button>
