@@ -30,8 +30,8 @@ function App() {
 
   }
 
-  const [messages, setMessages] = useState([])
-  const [comments, setComments] = useState()
+  //const [messages, setMessages] = useState([])
+ // const [comments, setComments] = useState()
  
  
 
@@ -39,7 +39,10 @@ function App() {
 
   if (!token) {
 
-    return <Login setToken={setToken} />
+    return <Login 
+    setToken={setToken}
+    
+    />
   }
 
 
@@ -50,6 +53,7 @@ function App() {
         
         setToken={setToken}
         token={token}
+       
 
       />
     </div>

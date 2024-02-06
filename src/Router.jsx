@@ -15,6 +15,7 @@ const Router = (props) => {
     setComments,
     token,
     setToken,
+    
 
 
   } = props;
@@ -28,6 +29,7 @@ const Router = (props) => {
           
           handleLogout={handleLogout}
           token={token}
+          
 
         />,
 
@@ -40,6 +42,8 @@ const Router = (props) => {
         <Login2
 
           setToken={setToken}
+          
+
 
         />,
       errorElement: <ErrorPage />,
