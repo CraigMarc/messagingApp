@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 
 const Home = (props) => {
-  
-    const {
-  
-     
-    
-      } = props;
 
-      
+  const {
+
+
+
+  } = props;
+
+
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -23,22 +23,15 @@ const Home = (props) => {
   const sessionUser = sessionStorage.getItem("userName")
   const currentUser = JSON.parse(sessionUser)
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
-
-  //dont need for this page but will for others *************
-  /*
-    if (!token) {
-  
-      return <Login setToken={setToken} />
-    }*/
 
   // get user messages and users
 
   const fetchInfo = async () => {
     //setLoading(true)
-   
+
 
     try {
 
@@ -47,22 +40,40 @@ const Home = (props) => {
         method: 'POST',
         body: JSON.stringify({
           userName: currentUser,
-          
-  
-  
+
+
+
         }),
         headers: {
           Authorization: tokenFetch,
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-  
-  
+
+      // return to login when token expires
+
+      if (allMessages.statusText == "Unauthorized") {
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("userName");
+        navigate('/login')
+
+      }
+
+
 
       const allUsers = await fetch('http://localhost:3000/users/users', {
-          headers: { Authorization: tokenFetch },
-          
-        })
+        headers: { Authorization: tokenFetch },
+
+      })
+
+      // return to login when token expires
+
+      if (allUsers.statusText == "Unauthorized") {
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("userName");
+        navigate('/login')
+
+      }
 
 
       const messageData = await allMessages.json();
@@ -89,7 +100,7 @@ const Home = (props) => {
     fetchInfo();
   }, [])
 
- 
+
 
   //display error and loading for api call
 
@@ -102,32 +113,7 @@ const Home = (props) => {
 
   if (loading) return <p>Loading...</p>;
 
-/*
-const getUsers = async () => {
- 
   
-
-  await fetch("http://localhost:3000/users/users", {
-    method: 'Get',
-
-    headers: {
-      Authorization: tokenFetch,
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-
-      setUsers(data)
-      //maybe set state for a rerender
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};*/
-
-
-
 
   return (
     <div>
