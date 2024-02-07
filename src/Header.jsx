@@ -21,6 +21,9 @@ function Header() {
         <Link  to="/login">
             <button className="logout" onClick={handleLogout} >logout</button>
           </Link>
+          <Link  to="/allusers">
+            <button className="allUsers" >All Users</button>
+          </Link>
         </div>
       </header>
     </div>

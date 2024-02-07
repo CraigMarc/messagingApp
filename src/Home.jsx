@@ -7,7 +7,9 @@ const Home = (props) => {
   const {
 
     messages,
-    setMessages
+    setMessages,
+    users,
+    setUsers
 
 
   } = props;
@@ -17,7 +19,7 @@ const Home = (props) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   
-  const [users, setUsers] = useState(true);
+  
 
   const token = sessionStorage.getItem("token");
   const tokenOb = JSON.parse(token)
@@ -86,6 +88,7 @@ const Home = (props) => {
 
     }
 
+   
     
     catch (error) {
       console.error("There has been a problem with your fetch operation:", error);
@@ -101,6 +104,8 @@ const Home = (props) => {
   useEffect(() => {
     fetchInfo();
   }, [])
+
+  
 
   let allPostsBy = messages.allPostsBy
   let allPostsSent = messages.allPostsSent

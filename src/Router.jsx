@@ -4,6 +4,7 @@ import ErrorPage from "./ErrorPage";
 import Login2 from "./Login2"
 import Register from "./Register"
 import NewPost from "./NewPost"
+import AllUsers from "./AllUsers"
 
 const Router = (props) => {
 
@@ -12,10 +13,10 @@ const Router = (props) => {
     handleLogout,
     messages,
     setMessages,
-    comments,
-    setComments,
     token,
     setToken,
+    users,
+    setUsers,
     
 
 
@@ -32,6 +33,8 @@ const Router = (props) => {
           token={token}
           messages={messages}
           setMessages={setMessages}
+          users={users}
+          setUsers={setUsers}
 
         />,
 
@@ -67,6 +70,17 @@ const Router = (props) => {
         <NewPost
           messages={messages}
           setMessages={setMessages}
+          
+
+        />,
+
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/allusers",
+      element:
+        <AllUsers
+         users={users}
           
 
         />,
