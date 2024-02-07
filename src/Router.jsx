@@ -3,6 +3,7 @@ import Home from "./Home"
 import ErrorPage from "./ErrorPage";
 import Login2 from "./Login2"
 import Register from "./Register"
+import NewPost from "./NewPost"
 
 const Router = (props) => {
 
@@ -29,7 +30,8 @@ const Router = (props) => {
           
           handleLogout={handleLogout}
           token={token}
-          
+          messages={messages}
+          setMessages={setMessages}
 
         />,
 
@@ -59,20 +61,18 @@ const Router = (props) => {
 
       errorElement: <ErrorPage />,
     },
-    /*
-        {
-          path: "/newpost",
-          element:
-            <NewPost
-              messages={messages}
-              comments={comments}
-              setComments={setComments}
-    
-            />,
-    
-          errorElement: <ErrorPage />,
-        },
-    */
+    {
+      path: "/newpost/:id",
+      element:
+        <NewPost
+          messages={messages}
+          setMessages={setMessages}
+          
+
+        />,
+
+      errorElement: <ErrorPage />,
+    },
 
   ]);
 

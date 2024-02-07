@@ -30,7 +30,8 @@ function App() {
 
   }
 
-  //const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState(true);
+ 
  // const [comments, setComments] = useState()
  
  
@@ -53,7 +54,8 @@ function App() {
         
         setToken={setToken}
         token={token}
-       
+        messages={messages}
+        setMessages={setMessages}
 
       />
     </div>

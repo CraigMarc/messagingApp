@@ -1,11 +1,13 @@
 import Header from "./Header"
 import { useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link  } from "react-router-dom";
 
 const Home = (props) => {
 
   const {
 
+    messages,
+    setMessages
 
 
   } = props;
@@ -14,7 +16,7 @@ const Home = (props) => {
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [messages, setMessages] = useState(true);
+  
   const [users, setUsers] = useState(true);
 
   const token = sessionStorage.getItem("token");
@@ -100,19 +102,35 @@ const Home = (props) => {
     fetchInfo();
   }, [])
 
-let allPostsBy = messages.allPostsBy
-let allPostsSent = messages.allPostsSent
-let messageArray = []
+  let allPostsBy = messages.allPostsBy
+  let allPostsSent = messages.allPostsSent
+  let messageArray = []
+  
+  if (allPostsBy || allPostsSent) {
+  messageArray  = allPostsBy.concat(allPostsSent)
+  }
+  
+  messageArray.sort(function(x, y){
+    return new Date(x.timestamp) - new Date(y.timestamp);
+  })
 
-if (allPostsBy || allPostsSent) {
-messageArray  = allPostsBy.concat(allPostsSent)
+let usersArray = [
+
+]
+
+for (let i=0; i < messageArray.length; i++) {
+  
+  if (!usersArray.includes(messageArray[i].sentBy)) {
+    usersArray.push(messageArray[i].sentBy)
+   
+  }
+  if (!usersArray.includes(messageArray[i].sentTo)) {
+    usersArray.push(messageArray[i].sentTo)
+  }
 }
 
-messageArray.sort(function(x, y){
-  return new Date(x.timestamp) - new Date(y.timestamp);
-})
+let filteredArray = usersArray.filter((user) => user != currentUser)
 
-console.log(messageArray)
 
   //display error and loading for api call
 
@@ -132,22 +150,22 @@ console.log(messageArray)
       <Header
 
       />
-     {messageArray.map((index) => {
+     {filteredArray.map((index) => {
            
-            let date = new Date(index.timestamp).toLocaleString()
-            
+    
 
             return (
 
               <div key={index._id} className="post">
-
+                
+                <Link to={`newpost/${index}`} state={index}>
+                <p>{index}</p>
+                    </Link>
                 <div id={index._id} className="card" >
 
 
-                  <p className='sentBy'>Sent By:{index.sentBy}</p>
-                  <p className='sentTo'>Sent To:{index.sentTo}</p>
-                  <p className='text'>{index.text}</p>
-                  <p className='date'>{date}</p>
+              
+                 
                   
                 </div>
               </div>
