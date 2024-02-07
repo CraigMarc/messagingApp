@@ -142,8 +142,7 @@ const Home = (props) => {
   let usersList = []
 
   for (let i = 0; i < messageArray.length; i++) {
-    //console.log(messageArray[i].sentBy._id != currentUser)
-
+    
     if (!usersArray.includes(messageArray[i].sentBy.userName)) {
       usersArray.push(messageArray[i].sentBy.userName)
       usersList.push(messageArray[i].sentBy)
@@ -156,8 +155,6 @@ const Home = (props) => {
 
   }
 
- console.log(usersList)
-  
  
   //display error and loading for api call
 

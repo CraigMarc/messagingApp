@@ -21,9 +21,12 @@ const NewPost = (props) => {
   const tokenFetch = `Bearer ${tokenOb.token}`
 
 
-  let allPostsBy = messages.allPostsBy
+let allPostsBy = messages.allPostsBy
   let allPostsSent = messages.allPostsSent
   let messageArray = []
+
+  
+
 
   if (allPostsBy || allPostsSent) {
     messageArray = allPostsBy.concat(allPostsSent)
@@ -33,7 +36,8 @@ const NewPost = (props) => {
     return new Date(x.timestamp) - new Date(y.timestamp);
   })
 
-  let filteredArray = messageArray.filter((user) => user.sentBy == currentUser || user.sentTo == currentUser)
+  let filteredArray = messageArray.filter((user) => user.sentBy._id == currentUser || user.sentTo._id == currentUser)
+  
 
   //event listener
   const [newMessage, setNewMessage] = useState();
@@ -95,8 +99,8 @@ const NewPost = (props) => {
             <div id={index._id} className="card" >
 
 
-              <p className='sentBy'>Sent By:{index.sentBy}</p>
-              <p className='sentTo'>Sent To:{index.sentTo}</p>
+              <p className='sentBy'>Sent By:{index.sentBy.firstName} {index.sentBy.lastName}</p>
+              <p className='sentTo'>Sent To:{index.sentTo.firstName} {index.sentTo.lastName}</p>
               <p className='text'>{index.text}</p>
               <p className='date'>{date}</p>
 
