@@ -50,7 +50,7 @@ const Login = (props) => {
     });
     let errMessage = token.message
     setToken(token);
-    sessionStorage.setItem('userName', JSON.stringify(userName));
+    sessionStorage.setItem('userName', JSON.stringify(token.user_id));
     navigate('/')
     if (token.message = "wrong username or password" ){
       setError(errMessage)

@@ -20,7 +20,7 @@ if (users != true) {
 filteredArray = users.filter((user) => user.userName != currentUser)
 
 }
-console.log(filteredArray)
+
 
   return (
     <div className="allUserContainer">

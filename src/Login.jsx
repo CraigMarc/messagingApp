@@ -25,7 +25,7 @@ const Login = (props) => {
         body: JSON.stringify(credentials)
       })
         .then(data => data.json())
-
+     
     }
     catch (error) {
 
@@ -46,9 +46,10 @@ const Login = (props) => {
       userName,
       password
     });
+    console.log(token)
     let errMessage = token.message
     setToken(token);
-    sessionStorage.setItem('userName', JSON.stringify(userName));
+    sessionStorage.setItem('userName', JSON.stringify(token.user_id));
     if (token.message = "wrong username or password") {
       setError(errMessage)
     }
