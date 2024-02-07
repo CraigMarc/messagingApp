@@ -132,7 +132,29 @@ console.log(messageArray)
       <Header
 
       />
-      <h1>Home</h1>
+     {messageArray.map((index) => {
+           
+            let date = new Date(index.timestamp).toLocaleString()
+            
+
+            return (
+
+              <div key={index._id} className="post">
+
+                <div id={index._id} className="card" >
+
+
+                  <p className='sentBy'>Sent By:{index.sentBy}</p>
+                  <p className='sentTo'>Sent To:{index.sentTo}</p>
+                  <p className='text'>{index.text}</p>
+                  <p className='date'>{date}</p>
+                  
+                </div>
+              </div>
+
+            )
+          })}
+
 
     </div>
   );
