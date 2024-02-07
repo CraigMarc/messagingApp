@@ -5,6 +5,7 @@ import Login2 from "./Login2"
 import Register from "./Register"
 import NewPost from "./NewPost"
 import AllUsers from "./AllUsers"
+import Profile from "./Profile";
 
 const Router = (props) => {
 
@@ -87,7 +88,17 @@ const Router = (props) => {
 
       errorElement: <ErrorPage />,
     },
+    {
+      path: "/profile",
+      element:
+        <Profile
+        
+          
 
+        />,
+
+      errorElement: <ErrorPage />,
+    },
   ]);
 
   return <RouterProvider router={router} />;

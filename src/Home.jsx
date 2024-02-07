@@ -40,26 +40,6 @@ const Home = (props) => {
 
     try {
 
-      /*
-            const allMessages = await fetch('http://localhost:3000/users/allmessages', {
-              method: 'POST',
-              body: JSON.stringify({
-                userName: currentUser,
-      
-      
-      
-              }),
-              headers: {
-                Authorization: tokenFetch,
-                'Content-type': 'application/json; charset=UTF-8',
-              },
-            })
-      
-            const allUsers = await fetch('http://localhost:3000/users/users', {
-              headers: { Authorization: tokenFetch },
-      
-            })*/
-
       const [allMessages, allUsers] = await Promise.all([
         fetch('http://localhost:3000/users/allmessages', {
           method: 'POST',
@@ -91,9 +71,6 @@ const Home = (props) => {
         navigate('/login')
 
       }
-
-
-
 
 
       // return to login when token expires

@@ -24,6 +24,9 @@ function Header() {
           <Link  to="/allusers">
             <button className="allUsers" >All Users</button>
           </Link>
+          <Link  to="/profile">
+            <button className="profile" >Update Profile</button>
+          </Link>
         </div>
       </header>
     </div>
