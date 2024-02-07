@@ -78,13 +78,13 @@ const Home = (props) => {
 
       const messageData = await allMessages.json();
       const userData = await allUsers.json();
-      console.log(messageData)
-      console.log(userData)
+      
       setMessages(messageData)
       setUsers(userData)
 
     }
 
+    
     catch (error) {
       console.error("There has been a problem with your fetch operation:", error);
       //add error message to dom
@@ -100,7 +100,19 @@ const Home = (props) => {
     fetchInfo();
   }, [])
 
+let allPostsBy = messages.allPostsBy
+let allPostsSent = messages.allPostsSent
+let messageArray = []
 
+if (allPostsBy || allPostsSent) {
+messageArray  = allPostsBy.concat(allPostsSent)
+}
+
+messageArray.sort(function(x, y){
+  return new Date(x.timestamp) - new Date(y.timestamp);
+})
+
+console.log(messageArray)
 
   //display error and loading for api call
 
