@@ -17,7 +17,7 @@ let filteredArray = []
 
 if (users != true) {
 
-filteredArray = users.filter((user) => user.userName != currentUser)
+filteredArray = users.filter((user) => user._id != currentUser)
 
 }
 
@@ -32,7 +32,7 @@ filteredArray = users.filter((user) => user.userName != currentUser)
 
              <div key={index._id} className="post">
 
-              <Link to={`/newpost/${index.userName}`} > 
+              <Link to={`/newpost/${index._id}`} > 
                <p>{index.firstName} {index.lastName}</p>
                </Link>
                
