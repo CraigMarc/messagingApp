@@ -56,14 +56,9 @@ const Home = (props) => {
               headers: { Authorization: tokenFetch }
       })
       ]);
+    
 
-      const messageData = await allMessages.json();
-      const userData = await allUsers.json();
-      
-      setMessages(messageData)
-      setUsers(userData)
-
-      // return to login when token expires
+     // return to login when token expires
 
       if (allMessages.statusText == "Unauthorized") {
         sessionStorage.removeItem("token");
@@ -72,9 +67,6 @@ const Home = (props) => {
 
       }
 
-
-      // return to login when token expires
-
       if (allUsers.statusText == "Unauthorized") {
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("userName");
@@ -82,8 +74,16 @@ const Home = (props) => {
 
       }
 
-    }
+      //get info if token ok
+
+  
+      const messageData = await allMessages.json();
+      const userData = await allUsers.json();
+      
+      setMessages(messageData)
+      setUsers(userData)
      
+    }
     catch (error) {
       console.error("There has been a problem with your fetch operation:", error);
       //add error message to dom
