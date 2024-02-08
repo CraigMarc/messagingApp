@@ -19,7 +19,7 @@ const Profile = (props) => {
   const currentUser = JSON.parse(sessionUser)
   const userData = users.filter((user) => user._id == currentUser)
 
-  
+
 
   //change to https later
 
@@ -55,7 +55,8 @@ const Profile = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        //setMessages(data)
+
+        setUsers(data)
 
       })
       .catch((err) => {
@@ -64,7 +65,71 @@ const Profile = (props) => {
 
   }
 
+  // delete pic
 
+  const deleteImage = async (event) => {
+
+
+    await fetch('http://localhost:3000/users/image', {
+      method: 'Delete',
+      body: JSON.stringify({
+        user_id: currentUser
+      }),
+      headers: {
+        Authorization: tokenFetch,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+
+        setUsers(data)
+        
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+
+  //render if pic on no pic
+
+  const AddPic = () => {
+
+    //if no pic render add pic button
+
+    if (!image) {
+      return (
+        <div className="addImageContainer">
+          <form encType="multipart/form-data" onSubmit={newImage}>
+            <label>
+              <div className="form-group">
+                <label>Image (file must be .jpeg .jpg or .png):</label>
+                <input type="file" className="form-control-file" id="image" name="image" accept=".jpeg, .jpg, .png" />
+              </div>
+            </label>
+            <div className="addImage">
+              <button type="submit">Add New Picture</button>
+            </div>
+          </form>
+
+        </div>
+      )
+    }
+    //render pic and delete button
+    else {
+      return (
+        <div>
+          <img className="imgProfile" src={url}></img>
+          <div className="addImage">
+            <button onClick={deleteImage} type="submit">Delete Picture</button>
+          </div>
+        </div>
+      )
+    }
+
+
+  }
 
   return (
 
@@ -72,21 +137,9 @@ const Profile = (props) => {
       <Header />
       <h1>Profile</h1>
 
-      <img className="imgEdit" src={url}></img>
-      <div className="addImageContainer">
-        <form encType="multipart/form-data" onSubmit={newImage}>
-          <label>
-            <div className="form-group">
-              <label>Image (file must be .jpeg .jpg or .png):</label>
-              <input type="file" className="form-control-file" id="image" name="image" accept=".jpeg, .jpg, .png" />
-            </div>
-          </label>
-          <div className="addImage">
-            <button type="submit">Add New Picture</button>
-          </div>
-        </form>
 
-      </div>
+
+      <AddPic />
     </div>
   );
 };
