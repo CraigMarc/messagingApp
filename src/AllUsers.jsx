@@ -33,6 +33,7 @@ filteredArray = users.filter((user) => user._id != currentUser)
              <div key={index._id} className="post">
 
               <Link to={`/newpost/${index._id}`} > 
+              <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
                <p>{index.firstName} {index.lastName}</p>
                </Link>
                
