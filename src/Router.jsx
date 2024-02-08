@@ -10,7 +10,7 @@ import Profile from "./Profile";
 const Router = (props) => {
 
   const {
-   
+
     handleLogout,
     messages,
     setMessages,
@@ -18,7 +18,7 @@ const Router = (props) => {
     setToken,
     users,
     setUsers,
-    
+
 
 
   } = props;
@@ -29,7 +29,7 @@ const Router = (props) => {
       path: "/",
       element:
         <Home
-          
+
           handleLogout={handleLogout}
           token={token}
           messages={messages}
@@ -48,7 +48,7 @@ const Router = (props) => {
         <Login2
 
           setToken={setToken}
-          
+
 
 
         />,
@@ -71,7 +71,7 @@ const Router = (props) => {
         <NewPost
           messages={messages}
           setMessages={setMessages}
-          
+
 
         />,
 
@@ -81,8 +81,8 @@ const Router = (props) => {
       path: "/allusers",
       element:
         <AllUsers
-         users={users}
-          
+          users={users}
+
 
         />,
 
@@ -92,8 +92,8 @@ const Router = (props) => {
       path: "/profile",
       element:
         <Profile
-        
-          
+          users={users}
+          setUsers={setUsers}
 
         />,
 
