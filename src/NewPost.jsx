@@ -167,7 +167,7 @@ const NewPost = (props) => {
       <form onSubmit={handleSubmit}>
         <label>
           <p>Message</p>
-          <input type="text" onChange={e => setNewMessage(e.target.value)} />
+          <input required type="text" onChange={e => setNewMessage(e.target.value)} />
         </label>
 
         <div className="submitMessage">
