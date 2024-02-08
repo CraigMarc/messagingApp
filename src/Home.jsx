@@ -153,6 +153,8 @@ const Home = (props) => {
       />
       {usersList.map((index) => {
 
+        //if (index.)
+
         if (index._id != currentUser) {
 
         return (
@@ -160,6 +162,7 @@ const Home = (props) => {
           <div key={index._id} className="post">
 
             <Link to={`newpost/${index._id}`} state={index}>
+            <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
               <p>{index.firstName} {index.lastName}</p>
             </Link>
             <div id={index._id} className="card" >
