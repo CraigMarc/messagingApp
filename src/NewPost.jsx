@@ -21,11 +21,11 @@ const NewPost = (props) => {
   const tokenFetch = `Bearer ${tokenOb.token}`
 
 
-let allPostsBy = messages.allPostsBy
+  let allPostsBy = messages.allPostsBy
   let allPostsSent = messages.allPostsSent
   let messageArray = []
 
-  
+
 
 
   if (allPostsBy || allPostsSent) {
@@ -37,18 +37,18 @@ let allPostsBy = messages.allPostsBy
   })
 
   let filteredArray = messageArray.filter((user) => user.sentBy._id == currentUser || user.sentTo._id == currentUser)
-  
+
 
   //event listener
   const [newMessage, setNewMessage] = useState();
   const [error, setError] = useState()
 
- 
-  
+
+
   const handleSubmit = async e => {
     e.preventDefault();
-   
-    
+
+
 
     //send form data
     await fetch("http://localhost:3000/users/messages", {
@@ -71,7 +71,7 @@ let allPostsBy = messages.allPostsBy
       .then((response) => response.json())
       .then((data) => {
         setMessages(data)
-        
+
 
       })
 
@@ -83,11 +83,11 @@ let allPostsBy = messages.allPostsBy
 
   }
 
-   // delete posts
+  // delete posts
 
-   const deleteMessage = async (event) => {
+  const deleteMessage = async (event) => {
     let id = event.target.value
-   
+
 
 
     await fetch('http://localhost:3000/users/message', {
@@ -106,42 +106,64 @@ let allPostsBy = messages.allPostsBy
       .then((data) => {
 
         setMessages(data)
-       
+
       })
       .catch((err) => {
         console.log(err.message);
       });
-      
+
   };
 
+  console.log(filteredArray.length)
+
+  const DisplayMessages = () => {
+
+    if (filteredArray.length == 0) {
+      return (
+        <div>
+          <h2>No Messages</h2>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div>
+          {filteredArray.map((index) => {
+
+            let date = new Date(index.timestamp).toLocaleString()
+
+
+            return (
+
+              <div key={index._id} className="post">
+
+                <div id={index._id} className="card" >
+
+
+                  <p className='sentBy'>Sent By:{index.sentBy.firstName} {index.sentBy.lastName}</p>
+                  <p className='sentTo'>Sent To:{index.sentTo.firstName} {index.sentTo.lastName}</p>
+                  <p className='text'>{index.text}</p>
+                  <p className='date'>{date}</p>
+                  <button value={index._id} className="deleteMessage" onClick={deleteMessage}>Delete Message</button>
+                </div>
+
+              </div>
+
+            )
+          })
+          }
+        </div>
+      )
+    }
+
+  }
 
   return (
     <div className="newPost">
       <Header />
 
-      {filteredArray.map((index) => {
+      <DisplayMessages />
 
-        let date = new Date(index.timestamp).toLocaleString()
-
-
-        return (
-
-          <div key={index._id} className="post">
-
-            <div id={index._id} className="card" >
-
-
-              <p className='sentBy'>Sent By:{index.sentBy.firstName} {index.sentBy.lastName}</p>
-              <p className='sentTo'>Sent To:{index.sentTo.firstName} {index.sentTo.lastName}</p>
-              <p className='text'>{index.text}</p>
-              <p className='date'>{date}</p>
-              <button value={index._id} className="deleteMessage" onClick={deleteMessage}>Delete Message</button>
-            </div>
-
-          </div>
-
-        )
-      })}
       <form onSubmit={handleSubmit}>
         <label>
           <p>Message</p>
@@ -153,7 +175,7 @@ let allPostsBy = messages.allPostsBy
         </div>
       </form>
 
-    
+
 
     </div>
 
