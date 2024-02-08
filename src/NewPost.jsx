@@ -83,6 +83,38 @@ let allPostsBy = messages.allPostsBy
 
   }
 
+   // delete posts
+
+   const deleteMessage = async (event) => {
+    let id = event.target.value
+   
+
+
+    await fetch('http://localhost:3000/users/message', {
+      method: 'Delete',
+      body: JSON.stringify({
+        id: id,
+        userName: sessionUserParse
+      }),
+
+      headers: {
+        Authorization: tokenFetch,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+
+        setMessages(data)
+       
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+      
+  };
+
+
   return (
     <div className="newPost">
       <Header />
@@ -103,7 +135,7 @@ let allPostsBy = messages.allPostsBy
               <p className='sentTo'>Sent To:{index.sentTo.firstName} {index.sentTo.lastName}</p>
               <p className='text'>{index.text}</p>
               <p className='date'>{date}</p>
-
+              <button value={index._id} className="deleteMessage" onClick={deleteMessage}>Delete Message</button>
             </div>
 
           </div>
