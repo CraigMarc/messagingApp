@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Header from "./Header"
 import { useState } from 'react'
 
@@ -11,6 +11,8 @@ const NewPost = (props) => {
 
 
   } = props;
+
+  const navigate = useNavigate();
 
   const urlParams = useParams();
   const currentUser = urlParams.id
@@ -78,6 +80,13 @@ const NewPost = (props) => {
 
       .catch((err) => {
         console.log(err.message);
+
+        if (err.message.includes("Unauthorized")) {
+          sessionStorage.removeItem("token");
+        sessionStorage.removeItem("userName");
+        navigate('/login')
+        }
+
       });
 
 
@@ -104,12 +113,18 @@ const NewPost = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-
+        console.log(data)
         setMessages(data)
 
       })
       .catch((err) => {
         console.log(err.message);
+        
+        if (err.message.includes("Unauthorized")) {
+          sessionStorage.removeItem("token");
+        sessionStorage.removeItem("userName");
+        navigate('/login')
+        }
       });
 
   };

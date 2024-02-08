@@ -58,6 +58,13 @@ const Profile = (props) => {
       })
       .catch((err) => {
         console.log(err.message);
+
+        if (err.message.includes("Unauthorized")) {
+          sessionStorage.removeItem("token");
+          sessionStorage.removeItem("userName");
+          navigate('/login')
+        }
+
       });
 
   }
@@ -82,10 +89,17 @@ const Profile = (props) => {
         sessionStorage.removeItem("message");
         sessionStorage.removeItem("token");
         navigate('/login')
-        
+
       })
       .catch((err) => {
         console.log(err.message);
+
+        if (err.message.includes("Unauthorized")) {
+          sessionStorage.removeItem("token");
+          sessionStorage.removeItem("userName");
+          navigate('/login')
+        }
+
       });
 
   }
