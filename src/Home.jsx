@@ -145,39 +145,56 @@ const Home = (props) => {
 
   if (loading) return <p>Loading...</p>;
 
+  //selective render if no user posts
 
+  const DisplayUsers = (props) => {
+    if (usersList.length == 0) {
+      return (
+        <div>
+          <h3>You have no conversations.</h3>
+        </div>
+      )
+    }
+    else {
+return (
+
+  <div>
+  {usersList.map((index) => {
+
+    //if (index.)
+
+    if (index._id != currentUser) {
+
+    return (
+
+      <div key={index._id} className="post">
+
+        <Link to={`newpost/${index._id}`} state={index}>
+        <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
+          <p>{index.firstName} {index.lastName}</p>
+        </Link>
+        <div id={index._id} className="card" >
+
+
+
+
+
+        </div>
+      </div>
+   ) }
+    
+  })}
+</div>
+)
+    }
+  }
+
+// render
 
   return (
     <div>
-      <Header
-
-      />
-      {usersList.map((index) => {
-
-        //if (index.)
-
-        if (index._id != currentUser) {
-
-        return (
-
-          <div key={index._id} className="post">
-
-            <Link to={`newpost/${index._id}`} state={index}>
-            <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
-              <p>{index.firstName} {index.lastName}</p>
-            </Link>
-            <div id={index._id} className="card" >
-
-
-
-
-
-            </div>
-          </div>
-       ) }
-        
-      })}
-    
+      <Header/>
+      <DisplayUsers/>
 
     </div>
   );

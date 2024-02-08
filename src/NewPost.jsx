@@ -114,7 +114,7 @@ const NewPost = (props) => {
 
   };
 
-  console.log(filteredArray.length)
+ 
 
   const DisplayMessages = () => {
 
