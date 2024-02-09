@@ -85,7 +85,7 @@ const Login = (props) => {
       <h1>Blog Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          <p>Username</p>
+          <p>Email</p>
           <input type="text" onChange={e => setUserName(e.target.value)} />
         </label>
         <label>

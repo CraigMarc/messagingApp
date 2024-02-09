@@ -6,6 +6,7 @@ import Register from "./Register"
 import NewPost from "./NewPost"
 import AllUsers from "./AllUsers"
 import Profile from "./Profile";
+import DeleteAccount from "./DeleteAccount";
 
 const Router = (props) => {
 
@@ -95,6 +96,15 @@ const Router = (props) => {
           users={users}
           setUsers={setUsers}
 
+        />,
+
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "/deleteaccount",
+      element:
+        <DeleteAccount
+          
         />,
 
       errorElement: <ErrorPage />,

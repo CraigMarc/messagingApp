@@ -68,7 +68,7 @@ const Profile = (props) => {
       });
 
   }
-
+/*
   const deleteProfile = async e => {
     //e.preventDefault();
 
@@ -103,7 +103,7 @@ const Profile = (props) => {
       });
 
   }
-
+*/
   return (
 
     <div className="profileContainer">
@@ -122,7 +122,9 @@ const Profile = (props) => {
             <button type="submit">Add New Picture</button>
           </div>
         </form>
-        <button className="deleteProfile" onClick={deleteProfile}>Delete Profile</button>
+        <Link to="/deleteaccount">
+        <button className="deleteProfile">Delete Profile</button>
+        </Link>
       </div>
 
 
