@@ -45,6 +45,7 @@
 .profilePicture {
   height: 200px;
   width: 240px;
+  
 }
 
 
@@ -52,6 +53,7 @@
 .imgProfile {
   height: 40px;
   width: 40px;
+  border-radius: 30px;
 }
 
 .imgDelete {
@@ -63,4 +65,11 @@
   height: 30px;
   width: 30px;
   
+}
+
+.userContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
 }

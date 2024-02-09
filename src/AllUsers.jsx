@@ -5,7 +5,7 @@ const AllUsers = (props) => {
 
   const {
 
-   users,
+    users,
 
   } = props;
 
@@ -13,37 +13,43 @@ const AllUsers = (props) => {
   const currentUser = JSON.parse(sessionUser)
 
 
-let filteredArray = []
+  let filteredArray = []
 
-if (users != true) {
+  if (users != true) {
 
-filteredArray = users.filter((user) => user._id != currentUser)
+    filteredArray = users.filter((user) => user._id != currentUser)
 
-}
+  }
 
 
   return (
-    <div className="allUserContainer">
-      <Header/>
+    <div>
+      <Header />
+      <div className="allUserContainer">
+        {filteredArray.map((index) => {
 
-      {filteredArray.map((index) => {
-           
-           return (
+          return (
+            
+            <Link key={index._id}  to={`/newpost/${index._id}`} >
+               <div key={index._id} className="userContainer">
+                  <div>
+                    <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
+                  </div>
 
-             <div key={index._id} className="post">
+                  
+                  <p>{index.firstName} {index.lastName}</p>
+                 
 
-              <Link to={`/newpost/${index._id}`} > 
-              <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
-               <p>{index.firstName} {index.lastName}</p>
-               </Link>
-               
-               <div id={index._id} className="card" >
- 
-               </div>
-             </div>
-
-           )
-         })}
+                  <div id={index._id} className="card" >
+                 
+                  </div>
+                 
+                  </div>
+                  </Link>
+              
+          )
+        })}
+      </div>
     </div>
   );
 };
