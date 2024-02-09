@@ -20,7 +20,7 @@ function Header() {
         <Link className="heading" to="/">
           <h2>Messenger</h2>
         </Link>
-        <div className="editButtonContainer" >
+        <div className="headerButtonContainer" >
         <Link  to="/login">
             <button className="logout" onClick={handleLogout} >logout</button>
           </Link>

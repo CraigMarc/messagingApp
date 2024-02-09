@@ -158,7 +158,7 @@ const Home = (props) => {
     else {
 return (
 
-  <div>
+  <div className="homeContainer">
   {usersList.map((index) => {
 
     //if (index.)
