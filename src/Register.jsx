@@ -72,32 +72,34 @@ const Register = (props) => {
 
 /// render sign up
   return(
-    <div className="login-wrapper">
+    <div className="signup-wrapper">
+      <div className="signUpContainer">
       <h1>Sign Up</h1>
       <button className="returnLogin" onClick={login} >Return to Login</button>
+      </div>
       <form onSubmit={handleSubmit}>
         <label>
-          <p>First Name</p>
-          <input type="text" minLength={2} required name='firstName' onChange={e => setFirstName(e.target.value)} />
+         
+          <input className="loginInput" type="text" placeholder="First Name" minLength={2} required name='firstName' onChange={e => setFirstName(e.target.value)} />
         </label>
         <label>
-          <p>Last Name</p>
-          <input type="text" minLength={2} required name='lastName' onChange={e => setLastName(e.target.value)} />
+         
+          <input className="loginInput" type="text" placeholder="Last Name" minLength={2} required name='lastName' onChange={e => setLastName(e.target.value)} />
         </label>
         <label>
-          <p>Email</p>
-          <input type="email" minLength={4} required name='userName' onChange={e => setUserName(e.target.value)} />
+        
+          <input className="loginInput" type="email" placeholder="Email" minLength={4} required name='userName' onChange={e => setUserName(e.target.value)} />
         </label>
         <label>
-          <p>Password</p>
-          <input type="password" minLength={6} required name="password" onChange={e => setPassword(e.target.value)} />
+          
+          <input className="loginInput" type="password" placeholder="Password" minLength={6} required name="password" onChange={e => setPassword(e.target.value)} />
         </label>
         <label>
-          <p>Retype Password</p>
-          <input type="password" minLength={6} required name='confirm'  onChange={e => setConfirm(e.target.value)} />
+         
+          <input className="loginInput" type="password" placeholder="Confirm Password" minLength={6} required name='confirm'  onChange={e => setConfirm(e.target.value)} />
         </label>
         <div className="loginSubmit">
-          <button type="submit">Submit</button>
+          <button type="submit">Register</button>
         </div>
       </form>
       <p>{error}</p>

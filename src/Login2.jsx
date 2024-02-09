@@ -86,15 +86,13 @@ const Login = (props) => {
       <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          <p>Email</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
+          <input className="loginInput" type="text" placeholder='Email' onChange={e => setUserName(e.target.value)} />
         </label>
         <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
+          <input className="loginInput" placeholder='Password' type="password" onChange={e => setPassword(e.target.value)} />
         </label>
         <div className="loginSubmit">
-          <button type="submit">Submit</button>
+        <button className='loginButton' type="submit">Login</button>
         </div>
       </form>
       <p>{error}</p>

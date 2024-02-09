@@ -144,3 +144,22 @@ p {
 .date {
   font-weight: 300;
 }
+
+.loginButton {
+  width: 200px;
+}
+
+.loginInput {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+ margin-bottom: 20px;
+}
+
+.signUpContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 40px;
+}

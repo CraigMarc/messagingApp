@@ -7,7 +7,7 @@ const Login = (props) => {
   const {
 
     setToken,
-   
+
 
 
   } = props;
@@ -25,7 +25,7 @@ const Login = (props) => {
         body: JSON.stringify(credentials)
       })
         .then(data => data.json())
-     
+
     }
     catch (error) {
 
@@ -46,7 +46,7 @@ const Login = (props) => {
       userName,
       password
     });
-   
+
     let errMessage = token.message
     setToken(token);
     sessionStorage.setItem('userName', JSON.stringify(token.user_id));
@@ -61,7 +61,7 @@ const Login = (props) => {
 
   const [showForm, setShowForm] = useState(false);
 
-  function signUp () {
+  function signUp() {
 
     setShowForm(true);
 
@@ -71,12 +71,12 @@ const Login = (props) => {
     return (
       <div>
         <Register
-        setShowForm={setShowForm}
+          setShowForm={setShowForm}
         />
       </div>
     )
 
-    // render sign in
+  // render sign in
 
   return (
     <div className="login-wrapper">
@@ -84,15 +84,13 @@ const Login = (props) => {
       <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          <p>Email</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
+          <input className="loginInput" type="text" placeholder='Email' onChange={e => setUserName(e.target.value)} />
         </label>
         <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
+          <input className="loginInput" placeholder='Password' type="password" onChange={e => setPassword(e.target.value)} />
         </label>
         <div className="loginSubmit">
-          <button type="submit">Submit</button>
+          <button className='loginButton' type="submit">Login</button>
         </div>
       </form>
       <p>{error}</p>
