@@ -79,7 +79,7 @@ const NewPost = (props) => {
       .then((response) => response.json())
       .then((data) => {
         setMessages(data)
-
+        e.target.reset()
 
       })
 

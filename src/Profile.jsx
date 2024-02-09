@@ -68,42 +68,7 @@ const Profile = (props) => {
       });
 
   }
-/*
-  const deleteProfile = async e => {
-    //e.preventDefault();
 
-    await fetch('http://localhost:3000/users/user', {
-      method: 'Delete',
-      body: JSON.stringify({
-        id: currentUser
-      }),
-
-      headers: {
-        Authorization: tokenFetch,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-
-        sessionStorage.removeItem("message");
-        sessionStorage.removeItem("token");
-        navigate('/login')
-
-      })
-      .catch((err) => {
-        console.log(err.message);
-
-        if (err.message.includes("Unauthorized")) {
-          sessionStorage.removeItem("token");
-          sessionStorage.removeItem("userName");
-          navigate('/login')
-        }
-
-      });
-
-  }
-*/
   return (
 
     <div className="profileContainer">
