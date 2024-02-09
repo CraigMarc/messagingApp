@@ -16,7 +16,6 @@ body {
 }
 
 
-
 .imgProfile {
   height: 40px;
   width: 40px;
@@ -113,4 +112,19 @@ header {
 
 .form-control-file {
   font-size: 18px;
+}
+
+.deleteProfileYes {
+  margin-right: 30px;
+}
+
+.loginSubmit {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+input {
+  font-size: 18px;
+  border-radius: 10px;
+  padding-left: 10px;
 }
