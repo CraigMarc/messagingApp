@@ -37,7 +37,7 @@ const AllUsers = (props) => {
                   </div>
 
                   
-                  <p>{index.firstName} {index.lastName}</p>
+                  <p className="allUsersName">{index.firstName} {index.lastName}</p>
                 
                  
                   </div>

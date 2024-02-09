@@ -17,8 +17,8 @@ body {
 
 
 .imgProfile {
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   border-radius: 30px;
 }
 
@@ -38,6 +38,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   gap: 40px;
+  padding-bottom: 20px;
 }
 
 
@@ -127,4 +128,9 @@ input {
   font-size: 18px;
   border-radius: 10px;
   padding-left: 10px;
+}
+
+.allUsersName {
+  font-size: 18px;
+
 }
