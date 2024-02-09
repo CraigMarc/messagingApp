@@ -79,6 +79,7 @@ body {
 
 header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
@@ -133,4 +134,13 @@ input {
 .allUsersName {
   font-size: 18px;
 
+}
+
+p {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.date {
+  font-weight: 300;
 }

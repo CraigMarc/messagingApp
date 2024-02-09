@@ -80,7 +80,7 @@ const Login = (props) => {
 
   return (
     <div className="login-wrapper">
-      <h1>Messenger</h1>
+      <h1>MessagesApp</h1>
       <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
         <label>

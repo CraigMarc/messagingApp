@@ -18,17 +18,17 @@ function Header() {
       <header>
 
         <Link className="heading" to="/">
-          <h2>Messenger</h2>
+          <h2>MessagesApp</h2>
         </Link>
         <div className="headerButtonContainer" >
         <Link  to="/login">
             <button className="logout" onClick={handleLogout} >logout</button>
           </Link>
           <Link  to="/allusers">
-            <button className="allUsers" >All Users</button>
+            <button className="allUsers" >Users</button>
           </Link>
           <Link  to="/profile">
-            <button className="profile" >Update Profile</button>
+            <button className="profile" >Profile</button>
           </Link>
         </div>
       </header>
