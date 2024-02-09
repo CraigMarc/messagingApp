@@ -24,10 +24,10 @@ const NewPost = (props) => {
   const tokenOb = JSON.parse(token)
   const tokenFetch = `Bearer ${tokenOb.token}`
 
- 
+
 
   let userNamePage = users.filter((user) => user._id == currentUser)
-  
+
 
   let allPostsBy = messages.allPostsBy
   let allPostsSent = messages.allPostsSent
@@ -159,12 +159,12 @@ const NewPost = (props) => {
                 <div id={index._id} className="card" >
 
                   <img className="imgProfile" src={`http://localhost:3000/uploads/${index.sentBy.image}`} alt="x"></img>
-                  <p className='newPostText'>{index.text}</p>
+                  <div className='newPostText'>{index.text}</div>
                   <div className="deleteMessage" onClick={deleteMessage}> <img id={index._id} className="imgDelete" onClick={deleteMessage} src={trashCan} alt="x"></img></div>
-                  </div>
-                  <p className='date'>{date}</p>
-                  
-                
+                </div>
+                <p className='date'>{date}</p>
+
+
 
               </div>
 
@@ -184,14 +184,16 @@ const NewPost = (props) => {
       <DisplayMessages />
 
       <form onSubmit={handleSubmit}>
-        <label>
-          <p>Message</p>
-          <input required type="text" onChange={e => setNewMessage(e.target.value)} />
-        </label>
-
+        <div className="newMessageContainer">
+        <div>
+          <label>
+            <textarea type="text" className="postInput" required onChange={e => setNewMessage(e.target.value)} />
+          </label>
+        </div>
         <div className="submitMessage">
           <input className="imgSend" type="image" src={send} alt="New Message" />
 
+        </div>
         </div>
       </form>
 
