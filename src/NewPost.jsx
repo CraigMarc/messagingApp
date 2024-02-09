@@ -96,7 +96,7 @@ const NewPost = (props) => {
 
   const deleteMessage = async (event) => {
     let id = event.target.value
-
+console.log(id)
 
 
     await fetch('http://localhost:3000/users/message', {
@@ -159,7 +159,7 @@ const NewPost = (props) => {
                   <p className='sentTo'>Sent To:{index.sentTo.firstName} {index.sentTo.lastName}</p>
                   <p className='text'>{index.text}</p>
                   <p className='date'>{date}</p>
-                  <button value={index._id} className="deleteMessage" onClick={deleteMessage}>Delete Message</button>
+                  <div value={index._id} className="deleteMessage" onClick={deleteMessage}> <img className="imgProfile" src={"./assets/send.png"} alt="x"></img></div>
                 </div>
 
               </div>
@@ -186,7 +186,7 @@ const NewPost = (props) => {
         </label>
 
         <div className="submitMessage">
-          <button type="submit">Make submit symbol</button>
+          <button type="submit" href="">Make submit symbol</button>
         </div>
       </form>
 
