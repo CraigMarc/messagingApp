@@ -38,11 +38,7 @@ const AllUsers = (props) => {
 
                   
                   <p>{index.firstName} {index.lastName}</p>
-                 
-
-                  <div id={index._id} className="card" >
-                 
-                  </div>
+                
                  
                   </div>
                   </Link>

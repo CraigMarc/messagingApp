@@ -9,8 +9,8 @@ const NewPost = (props) => {
   const {
 
     messages,
-    setMessages
-
+    setMessages,
+    users
 
   } = props;
 
@@ -24,6 +24,10 @@ const NewPost = (props) => {
   const tokenOb = JSON.parse(token)
   const tokenFetch = `Bearer ${tokenOb.token}`
 
+ 
+
+  let userNamePage = users.filter((user) => user._id == currentUser)
+  console.log(userNamePage)
 
   let allPostsBy = messages.allPostsBy
   let allPostsSent = messages.allPostsSent
@@ -176,7 +180,7 @@ const NewPost = (props) => {
   return (
     <div className="newPost">
       <Header />
-
+      <h2>{userNamePage[0].firstName} {userNamePage[0].lastName}</h2>
       <DisplayMessages />
 
       <form onSubmit={handleSubmit}>

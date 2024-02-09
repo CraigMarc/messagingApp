@@ -71,7 +71,7 @@ const Router = (props) => {
         <NewPost
           messages={messages}
           setMessages={setMessages}
-
+          users={users}
 
         />,
 

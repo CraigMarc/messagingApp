@@ -170,7 +170,9 @@ return (
       <div key={index._id} className="post">
 
         <Link to={`newpost/${index._id}`} state={index}>
+          <div>
         <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
+        </div>
           <p>{index.firstName} {index.lastName}</p>
         </Link>
         <div id={index._id} className="card" >
