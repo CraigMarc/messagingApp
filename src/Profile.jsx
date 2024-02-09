@@ -109,7 +109,7 @@ const Profile = (props) => {
     <div className="profileContainer">
       <Header />
       <h1>Profile</h1>
-      <img className="imgProfile" src={url}></img>
+      <img className="profilePicture" src={url}></img>
       <div className="addImageContainer">
         <form encType="multipart/form-data" onSubmit={newImage}>
           <label>

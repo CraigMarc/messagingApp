@@ -41,7 +41,26 @@
   color: #888;
 }
 */
+
+.profilePicture {
+  height: 200px;
+  width: 240px;
+}
+
+
+
 .imgProfile {
-  height: 150px;
-  width: 200px;
+  height: 40px;
+  width: 40px;
+}
+
+.imgDelete {
+  height: 30px;
+  width: 30px;
+}
+
+.imgSend {
+  height: 30px;
+  width: 30px;
+  
 }

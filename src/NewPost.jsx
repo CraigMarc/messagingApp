@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "./Header"
 import { useState } from 'react'
+import send from './assets/send.png';
+import trashCan from './assets/trashCan.png';
 
 const NewPost = (props) => {
 
@@ -83,8 +85,8 @@ const NewPost = (props) => {
 
         if (err.message.includes("Unauthorized")) {
           sessionStorage.removeItem("token");
-        sessionStorage.removeItem("userName");
-        navigate('/login')
+          sessionStorage.removeItem("userName");
+          navigate('/login')
         }
 
       });
@@ -95,9 +97,7 @@ const NewPost = (props) => {
   // delete posts
 
   const deleteMessage = async (event) => {
-    let id = event.target.value
-console.log(id)
-
+    let id = event.target.id
 
     await fetch('http://localhost:3000/users/message', {
       method: 'Delete',
@@ -113,23 +113,23 @@ console.log(id)
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+
         setMessages(data)
 
       })
       .catch((err) => {
         console.log(err.message);
-        
+
         if (err.message.includes("Unauthorized")) {
           sessionStorage.removeItem("token");
-        sessionStorage.removeItem("userName");
-        navigate('/login')
+          sessionStorage.removeItem("userName");
+          navigate('/login')
         }
       });
 
   };
 
- 
+
 
   const DisplayMessages = () => {
 
@@ -154,12 +154,12 @@ console.log(id)
 
                 <div id={index._id} className="card" >
 
-
+                  <img className="imgProfile" src={`http://localhost:3000/uploads/${index.sentBy.image}`} alt="x"></img>
                   <p className='sentBy'>Sent By:{index.sentBy.firstName} {index.sentBy.lastName}</p>
                   <p className='sentTo'>Sent To:{index.sentTo.firstName} {index.sentTo.lastName}</p>
                   <p className='text'>{index.text}</p>
                   <p className='date'>{date}</p>
-                  <div value={index._id} className="deleteMessage" onClick={deleteMessage}> <img className="imgProfile" src={"./assets/send.png"} alt="x"></img></div>
+                  <div className="deleteMessage" onClick={deleteMessage}> <img id={index._id} className="imgDelete" onClick={deleteMessage} src={trashCan} alt="x"></img></div>
                 </div>
 
               </div>
@@ -186,7 +186,8 @@ console.log(id)
         </label>
 
         <div className="submitMessage">
-          <button type="submit" href="">Make submit symbol</button>
+          <input className="imgSend" type="image" src={send} alt="New Message" />
+
         </div>
       </form>
 
