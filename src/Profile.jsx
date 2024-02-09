@@ -77,19 +77,25 @@ const Profile = (props) => {
       <img className="profilePicture" src={url}></img>
       <div className="addImageContainer">
         <form encType="multipart/form-data" onSubmit={newImage}>
-          <label>
+          
             <div className="form-group">
-              <label>Image (file must be .jpeg .jpg or .png):</label>
+              <p>Add new profile pic (file must be .jpeg .jpg or .png)</p>
               <input required type="file" className="form-control-file" id="image" name="image" accept=".jpeg, .jpg, .png" />
             </div>
-          </label>
+          
+          <div className="profileButtonContainer">
           <div className="addImage">
             <button type="submit">Add New Picture</button>
           </div>
+          <div>
+          <Link to="/deleteaccount">
+            <button className="deleteProfile">Delete Profile</button>
+          </Link>
+          </div>
+          </div>
         </form>
-        <Link to="/deleteaccount">
-        <button className="deleteProfile">Delete Profile</button>
-        </Link>
+
+
       </div>
 
 
