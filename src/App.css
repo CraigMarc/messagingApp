@@ -80,3 +80,19 @@
   align-items: center;
   gap: 40px;
 }
+
+.newPostText {
+  width: 70%;;
+  background-color: bisque;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+}
+

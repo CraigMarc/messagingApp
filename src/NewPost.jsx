@@ -27,7 +27,7 @@ const NewPost = (props) => {
  
 
   let userNamePage = users.filter((user) => user._id == currentUser)
-  console.log(userNamePage)
+  
 
   let allPostsBy = messages.allPostsBy
   let allPostsSent = messages.allPostsSent
@@ -154,17 +154,17 @@ const NewPost = (props) => {
 
             return (
 
-              <div key={index._id} className="post">
+              <div key={index._id}>
 
                 <div id={index._id} className="card" >
 
                   <img className="imgProfile" src={`http://localhost:3000/uploads/${index.sentBy.image}`} alt="x"></img>
-                  <p className='sentBy'>Sent By:{index.sentBy.firstName} {index.sentBy.lastName}</p>
-                  <p className='sentTo'>Sent To:{index.sentTo.firstName} {index.sentTo.lastName}</p>
-                  <p className='text'>{index.text}</p>
-                  <p className='date'>{date}</p>
+                  <p className='newPostText'>{index.text}</p>
                   <div className="deleteMessage" onClick={deleteMessage}> <img id={index._id} className="imgDelete" onClick={deleteMessage} src={trashCan} alt="x"></img></div>
-                </div>
+                  </div>
+                  <p className='date'>{date}</p>
+                  
+                
 
               </div>
 
