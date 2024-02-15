@@ -23,7 +23,7 @@ const Profile = (props) => {
   let image = userData[0].image
   let url = ""
   if (image) {
-    url = `http://localhost:3000/uploads/${image}`
+    url = `https://messaging-app-api.fly.dev/uploads/${image}`
   }
 
   // add pic
@@ -39,7 +39,7 @@ const Profile = (props) => {
 
 
 
-    await fetch('http://localhost:3000/users/image', {
+    await fetch('https://messaging-app-api.fly.dev/users/image', {
 
       method: 'Post',
       body: formData,

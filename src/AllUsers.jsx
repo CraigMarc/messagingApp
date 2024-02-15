@@ -33,7 +33,7 @@ const AllUsers = (props) => {
             <Link key={index._id}  to={`/newpost/${index._id}`} >
                <div key={index._id} className="userContainer">
                   <div>
-                    <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
+                    <img className="imgProfile" src={`https://messaging-app-api.fly.dev/uploads/${index.image}`} alt="x"></img>
                   </div>
 
                   

@@ -30,7 +30,7 @@ const Register = (props) => {
    }
    else {
     try {
-      return fetch('http://localhost:3000/signup', {
+      return fetch('https://messaging-app-api.fly.dev/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

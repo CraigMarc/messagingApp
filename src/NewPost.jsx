@@ -59,7 +59,7 @@ const NewPost = (props) => {
 
 
     //send form data
-    await fetch("http://localhost:3000/users/messages", {
+    await fetch("https://messaging-app-api.fly.dev/users/messages", {
       method: 'POST',
       body: JSON.stringify({
         sentBy: sessionUserParse,
@@ -103,7 +103,7 @@ const NewPost = (props) => {
   const deleteMessage = async (event) => {
     let id = event.target.id
 
-    await fetch('http://localhost:3000/users/message', {
+    await fetch('https://messaging-app-api.fly.dev/users/message', {
       method: 'Delete',
       body: JSON.stringify({
         id: id,
@@ -158,7 +158,7 @@ const NewPost = (props) => {
 
                 <div id={index._id} className="card" >
 
-                  <img className="imgProfile" src={`http://localhost:3000/uploads/${index.sentBy.image}`} alt="x"></img>
+                  <img className="imgProfile" src={`https://messaging-app-api.fly.dev/uploads/${index.sentBy.image}`} alt="x"></img>
                   <div className='newPostText'>{index.text}</div>
                   <div className="deleteMessage" onClick={deleteMessage}> <img id={index._id} className="imgDelete" onClick={deleteMessage} src={trashCan} alt="x"></img></div>
                 </div>

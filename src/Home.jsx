@@ -41,7 +41,7 @@ const Home = (props) => {
     try {
 
       const [allMessages, allUsers] = await Promise.all([
-        fetch('http://localhost:3000/users/allmessages', {
+        fetch('https://messaging-app-api.fly.dev/users/allmessages', {
           method: 'POST',
           body: JSON.stringify({
             userName: currentUser,
@@ -52,7 +52,7 @@ const Home = (props) => {
             'Content-type': 'application/json; charset=UTF-8',
           },
         }),
-        fetch('http://localhost:3000/users/users', {
+        fetch('https://messaging-app-api.fly.dev/users/users', {
               headers: { Authorization: tokenFetch }
       })
       ]);
@@ -172,7 +172,7 @@ return (
         <Link to={`newpost/${index._id}`} state={index}>
         <div key={index._id} className="userContainer">
           <div>
-        <img className="imgProfile" src={`http://localhost:3000/uploads/${index.image}`} alt="x"></img>
+        <img className="imgProfile" src={`https://messaging-app-api.fly.dev/uploads/${index.image}`} alt="x"></img>
         </div>
           <p>{index.firstName} {index.lastName}</p>
           </div>

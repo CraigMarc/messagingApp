@@ -13,7 +13,7 @@ const DeleteAccount = () => {
     const deleteProfile = async e => {
         //e.preventDefault();
     
-        await fetch('http://localhost:3000/users/user', {
+        await fetch('https://messaging-app-api.fly.dev/users/user', {
           method: 'Delete',
           body: JSON.stringify({
             id: currentUser
