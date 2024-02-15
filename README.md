@@ -1,8 +1,6 @@
-# React + Vite
+This is the front end site for the Messageing App allowing users to log in, sign up update profiles and send messages.  It is built with React and has a node.js api to perform CRUD operations on the database and to authenticate users.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repo is live [here](https://chic-gecko-10572b.netlify.app/)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit the REST API repo for this project [here](https://github.com/CraigMarc/messaging-app-api).
