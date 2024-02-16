@@ -1,21 +1,23 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "./Header"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import send from './assets/send.png';
 import trashCan from './assets/trashCan.png';
+import Home from "./Home"
 
 const NewPost = (props) => {
 
   const {
 
+    users,
+    setUsers,
     messages,
     setMessages,
-    users
+    handleLogout
 
   } = props;
 
   const navigate = useNavigate();
-
   const urlParams = useParams();
   const currentUser = urlParams.id
   const sessionUser = sessionStorage.getItem("userName")
@@ -26,7 +28,13 @@ const NewPost = (props) => {
 
 
 
-  let userNamePage = users.filter((user) => user._id == currentUser)
+  // process data
+
+  let userNamePage = []
+
+  if (users != true) {
+    userNamePage = users.filter((user) => user._id == currentUser)
+  }
 
 
   let allPostsBy = messages.allPostsBy
@@ -177,6 +185,22 @@ const NewPost = (props) => {
 
   }
 
+  // if rerender 
+
+  if (userNamePage.length == 0) {
+    return (
+      <Home
+        handleLogout={handleLogout}
+        token={token}
+        messages={messages}
+        setMessages={setMessages}
+        users={users}
+        setUsers={setUsers}
+      />
+    )
+  }
+
+
   return (
     <div className="newPost">
       <Header />
@@ -185,15 +209,15 @@ const NewPost = (props) => {
 
       <form onSubmit={handleSubmit}>
         <div className="newMessageContainer">
-        <div>
-          <label>
-            <textarea type="text" className="postInput" required onChange={e => setNewMessage(e.target.value)} />
-          </label>
-        </div>
-        <div className="submitMessage">
-          <input className="imgSend" type="image" src={send} alt="New Message" />
+          <div>
+            <label>
+              <textarea type="text" className="postInput" required onChange={e => setNewMessage(e.target.value)} />
+            </label>
+          </div>
+          <div className="submitMessage">
+            <input className="imgSend" type="image" src={send} alt="New Message" />
 
-        </div>
+          </div>
         </div>
       </form>
 

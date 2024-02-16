@@ -1,11 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header"
+import Home from "./Home"
 
 const Profile = (props) => {
 
   const {
     users,
-    setUsers
+    setUsers,
+    messages,
+    setMessages,
+    handleLogout
+
   } = props;
 
 
@@ -14,9 +19,27 @@ const Profile = (props) => {
   const tokenFetch = `Bearer ${tokenOb.token}`
   const sessionUser = sessionStorage.getItem("userName")
   const currentUser = JSON.parse(sessionUser)
+  
+  const navigate = useNavigate();
+
+  // if refresh and users empty navigate call home to get data
+
+  if (users == true) {
+    return (
+      <Home
+      handleLogout={handleLogout}
+          token={token}
+          messages={messages}
+          setMessages={setMessages}
+          users={users}
+          setUsers={setUsers}
+      />
+    )
+  }
+
   const userData = users.filter((user) => user._id == currentUser)
 
-  const navigate = useNavigate();
+  
 
   //change to https later
 

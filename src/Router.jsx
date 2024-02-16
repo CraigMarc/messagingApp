@@ -70,9 +70,11 @@ const Router = (props) => {
       path: "/newpost/:id",
       element:
         <NewPost
+          users={users}
+          setUsers={setUsers}
+          handleLogout={handleLogout}
           messages={messages}
           setMessages={setMessages}
-          users={users}
 
         />,
 
@@ -83,6 +85,10 @@ const Router = (props) => {
       element:
         <AllUsers
           users={users}
+          setUsers={setUsers}
+          handleLogout={handleLogout}
+          messages={messages}
+          setMessages={setMessages}
 
 
         />,
@@ -95,6 +101,9 @@ const Router = (props) => {
         <Profile
           users={users}
           setUsers={setUsers}
+          handleLogout={handleLogout}
+          messages={messages}
+          setMessages={setMessages}
 
         />,
 
@@ -104,7 +113,7 @@ const Router = (props) => {
       path: "/deleteaccount",
       element:
         <DeleteAccount
-          
+
         />,
 
       errorElement: <ErrorPage />,
