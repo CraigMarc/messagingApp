@@ -18,7 +18,7 @@ function Header() {
       <header>
 
         <Link className="heading" to="/">
-          <h2>MessagesApp2</h2>
+          <h2>MessagesApp</h2>
         </Link>
         <div className="headerButtonContainer" >
         <Link  to="/login">
