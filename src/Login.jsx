@@ -47,6 +47,8 @@ const Login = (props) => {
       password
     });
 
+    console.log(token)
+
     let errMessage = token.message
     setToken(token);
     sessionStorage.setItem('userName', JSON.stringify(token.user_id));
