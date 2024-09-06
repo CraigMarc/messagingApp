@@ -47,7 +47,6 @@ const Login = (props) => {
       password
     });
 
-    console.log(token)
 
     let errMessage = token.message
     setToken(token);
