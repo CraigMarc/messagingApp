@@ -96,7 +96,7 @@ const Profile = (props) => {
 
     <div className="profileContainer">
       <Header />
-      <h1>{currentUser}</h1>
+      <h1>{userData[0].firstName} {userData[0].lastName}</h1>
       <img className="profilePicture" src={url}></img>
       <div className="addImageContainer">
         <form encType="multipart/form-data" onSubmit={newImage}>
