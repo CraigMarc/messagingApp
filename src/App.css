@@ -50,6 +50,7 @@ body {
   overflow-wrap: break-word;
   padding-left: 5px;
   padding-right: 5px;
+  text-align: right;
 }
 
 .card {

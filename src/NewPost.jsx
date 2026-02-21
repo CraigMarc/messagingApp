@@ -167,7 +167,7 @@ const NewPost = (props) => {
                 <div id={index._id} className="card" >
 
                   <img className="imgProfile" src={`https://messaging-app-api.fly.dev/uploads/${index.sentBy.image}`} alt="x"></img>
-                  <div className='newPostText'>{index.text}</div>
+                  <div className='newPostText'>  {index.text}</div>
                   <div className="deleteMessage" onClick={deleteMessage}> <img id={index._id} className="imgDelete" onClick={deleteMessage} src={trashCan} alt="x"></img></div>
                 </div>
                 <p className='date'>{date}</p>
